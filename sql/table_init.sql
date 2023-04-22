@@ -1,5 +1,7 @@
 CREATE TABLE IF NOT EXISTS players (
-    coins INT DEFAULT 0
+    coins INT DEFAULT 0,
+    username TEXT DEFAULT "",
+    password TEXT DEFAULT ""
 );
 
 CREATE TABLE IF NOT EXISTS characters (
@@ -62,8 +64,6 @@ CREATE TABLE IF NOT EXISTS enemies (
 CREATE TABLE IF NOT EXISTS player_items (
     player_id INT,
     item_id INT,
-    count INT DEFAULT 1,
-    used INT DEFAULT 0,
     FOREIGN KEY (player_id) REFERENCES players(id),
     FOREIGN KEY (item_id) REFERENCES items(id)
 );
@@ -72,14 +72,14 @@ CREATE TABLE IF NOT EXISTS player_items (
 CREATE TABLE IF NOT EXISTS player_characters (
     player_id INT,
     character_id INT,
-    level INT,
-    love INT,
+    level INT DEFAULT 1,
+    love INT DEFAULT 0,
     item_1 INT,
     item_2 INT,
     item_3 INT,
     FOREIGN KEY (player_id) REFERENCES players(id),
     FOREIGN KEY (character_id) REFERENCES characters(id),
-    FOREIGN KEY (item_1) REFERENCES items(id),
-    FOREIGN KEY (item_2) REFERENCES items(id),
-    FOREIGN KEY (item_3) REFERENCES items(id)
+    FOREIGN KEY (item_1) REFERENCES player_items(id),
+    FOREIGN KEY (item_2) REFERENCES player_items(id),
+    FOREIGN KEY (item_3) REFERENCES player_items(id)
 );
