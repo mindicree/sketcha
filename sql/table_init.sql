@@ -1,7 +1,7 @@
 CREATE TABLE IF NOT EXISTS players (
-    coins INT DEFAULT 0,
-    username TEXT DEFAULT "",
-    password TEXT DEFAULT ""
+    coins INT DEFAULT 5,
+    username TEXT DEFAULT NULL,
+    password TEXT DEFAULT NULL
 );
 
 CREATE TABLE IF NOT EXISTS characters (
