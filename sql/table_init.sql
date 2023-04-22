@@ -40,6 +40,7 @@ CREATE TABLE IF NOT EXISTS items (
 
 CREATE TABLE IF NOT EXISTS enemies (
     name TEXT,
+    desc TEXT,
     hp INT,
     atk INT,
     atk_type TEXT,
@@ -47,9 +48,11 @@ CREATE TABLE IF NOT EXISTS enemies (
     a_def INT,
     m_def INT,
     r_def INT,
+    speed INT,
     sprite_idle_1 TEXT,
     sprite_idle_2 TEXT,
     sprite_atk,
+    sprite_damage,
     sprite_dodge,
     sprite_victory_1 TEXT,
     sprite_victory_2 TEXT,
