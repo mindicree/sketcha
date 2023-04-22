@@ -12,6 +12,98 @@
     <link href="https://fonts.googleapis.com/css2?family=Bowlby+One+SC&family=Expletus+Sans&family=Koulen&family=Patrick+Hand+SC&family=Press+Start+2P&family=Rubik+Iso&family=Skranji&display=swap" rel="stylesheet">
 </head>
 <body>
-    Hello World!
+    <div id="content-container" class="w-full h-screen">
+        <div id="screen_loading" class="active_screen opacity-0">
+            <div class="grid h-[50vh] m-auto">
+                <h2 class="text-5xl m-auto font-patrick">LOADING</h2>
+                <div class="lds-ripple m-auto"><div></div><div></div></div>
+            </div>
+        </div>
+        <div id="game_screen_container" class="w-full h-screen m-auto grid opacity-0">
+            <!-- HOME SCREENS -->
+            <div id="screen_home_new" class="opacity-0 inactive_screen">
+                <div class="grid h-[75vh] m-auto">
+                    <h2 class="text-7xl m-auto font-patrick">SKETCHA</h2>
+                    <button onclick="alert('implement')" class="m-auto min-w-[300px] py-2 text-3xl text-black font-patrick bg-white border-2 border-black transition duration-100 hover:bg-black hover:text-white">New</button>
+                </div>
+            </div>
+            <div id="screen_new_player" class="opacity-0 inactive_screen">
+
+            </div>
+            <div id="screen_home_continue" class="opacity-0 inactive_screen">
+
+            </div>
+            <div id="screen_home_portal" class="opacity-0 inactive_screen">
+
+            </div>
+            <div id="screen_home_options" class="opacity-0 inactive_screen">
+
+            </div>
+            <!-- GACHA CHAR SCREENS -->
+            <div id="screen_gacha_char_buy" class="opacity-0 inactive_screen">
+
+            </div>
+            <div id="screen_gacha_char_open" class="opacity-0 inactive_screen">
+
+            </div>
+            <div id="screen_gacha_char_result" class="opacity-0 inactive_screen">
+
+            </div>
+            <!-- GACHA ITEM SCREENS -->
+            <div id="screen_gacha_item_buy" class="opacity-0 inactive_screen">
+
+            </div>
+            <div id="screen_gacha_item_open" class="opacity-0 inactive_screen">
+
+            </div>
+            <div id="screen_gacha_item_result" class="opacity-0 inactive_screen">
+
+            </div>
+            <!-- CHARACTER SCREENS -->
+            <div id="screen_char_list" class="opacity-0 inactive_screen">
+
+            </div>
+            <div id="screen_char_select" class="opacity-0 inactive_screen">
+
+            </div>
+            <div id="screen_char_equip" class="opacity-0 inactive_screen">
+
+            </div>
+            <!-- ITEM SCREENS -->
+            <div id="screen_item_list" class="opacity-0 inactive_screen">
+
+            </div>
+            <div id="screen_item_select" class="opacity-0 inactive_screen">
+
+            </div>
+            <div id="screen_item_equip" class="opacity-0 inactive_screen">
+
+            </div>
+            <!-- BATTLE SCREENS -->
+            <div id="screen_battle_team" class="opacity-0 inactive_screen">
+
+            </div>
+            <div id="screen_battle_select" class="opacity-0 inactive_screen">
+
+            </div>
+            <div id="screen_battle_fight" class="opacity-0 inactive_screen">
+
+            </div>
+            <div id="screen_battle_finish" class="opacity-0 inactive_screen">
+
+            </div>
+        </div>
+    </div>
 </body>
+<script src="{{ url_for('static', filename='js/screens.js') }}"></script>
+<script src="{{ url_for('static', filename='js/update_ui.js') }}"></script>
+<script>
+    // initialize the game
+    // initial views
+    setTimeout(() => {
+        game_screen_container.classList.remove('opacity-0')
+        update_ui()
+        transition_screen(screen_loading, screen_home_new)
+    }, 2000);
+</script>
 </html>
