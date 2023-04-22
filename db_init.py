@@ -56,6 +56,24 @@ except Exception as e:
     print(f'Could not load item data into database. Error: {e}')
     exit()
 
+# load enemies
+try:
+    enem_files = os.listdir('enemies')
+    enem_files.remove('_template.yaml')
+    for enem_file in enem_files:
+        with open(f'enemies/{enem_file}', 'r') as file:
+            enem = yaml.safe_load(file.read())
+            script = f'''
+            INSERT INTO enemies 
+            (name, desc, hp, atk, atk_type, p_def, a_def, m_def, r_def, speed, sprite_idle_1, sprite_idle_2, sprite_atk, sprite_damage, sprite_dodge, sprite_victory_1, sprite_victory_2, sprite_defeat_1, sprite_defeat_2)
+            VALUES
+            ("{enem['NAME']}", "{enem['DESC']}", {enem['HP']}, {enem['ATK']}, "{enem['ATK_TYPE']}", {enem['P_DEF']}, {enem['A_DEF']}, {enem['M_DEF']}, {enem['R_DEF']}, {enem['SPEED']}, "{enem['SPRITE_IDLE_1']}", "{enem['SPRITE_IDLE_2']}", "{enem['SPRITE_ATK']}", "{enem['SPRITE_DAMAGE']}", "{enem['SPRITE_DODGE']}", "{enem['SPRITE_VICTORY_1']}", "{enem['SPRITE_VICTORY_2']}", "{enem['SPRITE_DEFEAT_1']}", "{enem['SPRITE_DEFEAT_2']}")
+            '''
+            cursor.executescript(script)
+except Exception as e:
+    print(f'Could not load enemy data into database. Error: {e}')
+    exit()
+
 # conclude
 cursor.close()
 print('\nDatabase successfully initialized.')
