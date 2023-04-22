@@ -1,5 +1,4 @@
 CREATE TABLE IF NOT EXISTS players (
-    uuid TEXT UNIQUE,
     coins INT DEFAULT 0
 );
 
@@ -63,8 +62,8 @@ CREATE TABLE IF NOT EXISTS enemies (
 CREATE TABLE IF NOT EXISTS player_items (
     player_id INT,
     item_id INT,
-    count INT,
-    used INT,
+    count INT DEFAULT 1,
+    used INT DEFAULT 0,
     FOREIGN KEY (player_id) REFERENCES players(id),
     FOREIGN KEY (item_id) REFERENCES items(id)
 );
