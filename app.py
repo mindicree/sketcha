@@ -2,6 +2,7 @@
 from flask import Flask, render_template
 from flask_socketio import SocketIO
 import yaml
+from gamecode import *
 
 # configuration load
 try:
