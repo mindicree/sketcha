@@ -5,3 +5,4 @@ database.db-journal
 archive/
 __pycache__/
 logs/
+node_modules/

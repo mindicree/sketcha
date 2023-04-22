@@ -1,0 +1,15 @@
+{
+  "name": "sketcha",
+  "version": "1.0.0",
+  "description": "gacha game for spring 2023 49er game jam",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "npx tailwindcss -i ./src/app.css -o ./static/css/style.css --watch"
+  },
+  "author": "mindicree",
+  "license": "ISC",
+  "devDependencies": {
+    "tailwindcss": "^3.3.1"
+  }
+}

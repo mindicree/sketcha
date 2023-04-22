@@ -25,7 +25,7 @@ socketio =  SocketIO(app, async_mode=None)
 # main application route
 @app.route('/')
 def index():
-    return 'Hello World'
+    return render_template('index.html')
 
 # socket routes
 @socketio.on('connect')
