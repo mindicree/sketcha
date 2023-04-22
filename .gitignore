@@ -1,5 +1,6 @@
 env/
 config.yaml
 database.db
+database.db-journal
 archive/
 __pycache__/
