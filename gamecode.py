@@ -20,7 +20,7 @@ except Exception as e:
     pass
 
 try:
-    logging.basicConfig(filename=f'logs\log_{datetime.now().strftime("%Y_%m_%d_%H_%M_%S")}.txt',
+    logging.basicConfig(filename=f'logs\log_{datetime.now().strftime("%Y_%m_%d")}.txt',
                         filemode='a',
                         format='%(asctime)s,%(msecs)d %(name)s %(levelname)s %(message)s',
                         datefmt='%H:%M:%S',
