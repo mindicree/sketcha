@@ -2,3 +2,4 @@ env/
 config.yaml
 database.db
 archive/
+__pycache__/
