@@ -46,7 +46,15 @@ CREATE TABLE IF NOT EXISTS enemies (
     p_def INT,
     a_def INT,
     m_def INT,
-    r_def INT
+    r_def INT,
+    sprite_idle_1 TEXT,
+    sprite_idle_2 TEXT,
+    sprite_atk,
+    sprite_dodge,
+    sprite_victory_1 TEXT,
+    sprite_victory_2 TEXT,
+    sprite_defeat_1 TEXT,
+    sprite_defeat_2 TEXT
 );
 
 CREATE TABLE IF NOT EXISTS player_items (
