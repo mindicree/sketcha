@@ -33,6 +33,17 @@ let screen_battle_fight = document.querySelector('#screen_battle_fight')
 let screen_battle_finish = document.querySelector('#screen_battle_finish')
 
 // transition function
+function transition(new_screen) {
+    old_screen = get_active_screen()
+    old_screen.classList.add('inactive_screen')
+    new_screen.classList.remove('inactive_screen')
+    new_screen.classList.add('z-50')
+    new_screen.classList.add('active_screen')
+    old_screen.classList.remove('active_screen')
+    old_screen.classList.remove('z-50')
+}
+
+// transition screen function
 function transition_screen(old_screen, new_screen) {
     old_screen.classList.add('inactive_screen')
     new_screen.classList.remove('inactive_screen')
@@ -45,4 +56,17 @@ function transition_screen(old_screen, new_screen) {
 // toggle loading icons
 function toggle_loading() {
     document.querySelector('#loading_icon').classList.toggle('hidden')
+}
+
+// function to get active screen
+function get_active_screen(value = 'element') {
+    let active_screen = Array.from(document.getElementsByClassName('active_screen'))[0]
+    switch(value) {
+        case 'element':
+            return active_screen
+        case 'id':
+            return active_screen.id
+        default:
+            return active_screen
+    }
 }
