@@ -53,6 +53,19 @@ def route_new_player():
         logging.error(e)
         abort(500)
 
+@app.route('/get-player-data', methods=['GET'])
+def route_get_player_data():
+    player_id = request.args.get('id')
+    res = {
+        'status': 'success',
+        'message': 'player data retrieved successfully',
+        'data': {
+            'characters': [],
+            'items': []
+        }
+    }
+    return make_response(jsonify(res), 200)
+
 # socket routes
 @socketio.on('connect')
 def connect():
