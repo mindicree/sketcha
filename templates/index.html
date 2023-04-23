@@ -137,13 +137,5 @@
 <script src="{{ url_for('static', filename='js/screens.js') }}"></script>
 <script src="{{ url_for('static', filename='js/update_ui.js') }}"></script>
 <script src="{{ url_for('static', filename='js/player.js') }}"></script>
-<script>
-    // initialize the game
-    // initial views
-    setTimeout(() => {
-        game_screen_container.classList.remove('opacity-0')
-        update_ui()
-        transition_screen(screen_loading, screen_home_new)
-    }, 2000);
-</script>
+<script src="{{ url_for('static', filename='js/start.js') }}"></script>
 </html>
