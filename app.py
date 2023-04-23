@@ -65,6 +65,7 @@ def route_get_player_data():
         }
         return make_response(jsonify(res), 200)
     except Exception as e:
+        logging.error(e)
         abort(500)
 
 # socket routes
