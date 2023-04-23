@@ -4,8 +4,9 @@ function load_panel() {
     fetch(base_url(`/get-player-data?id=${curr_player['id']}`))
     .then(res => res.json())
     .then(data => {
+        player_data = data['data']
         toggle_loading()
-        console.log(data)
+        transition(screen_home_panel)
     })
     .catch(err => {
         console.log(err)
