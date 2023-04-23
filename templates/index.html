@@ -104,7 +104,56 @@
                 </div>
             </div>
             <div id="screen_home_panel" class="opacity-0 inactive_screen">
-
+                <div class="m-auto w-full h-[80vh] max-w-4xl grid lg:grid-cols-2 gap-4">
+                    <div class="grid m-auto w-full h-full">
+                        <div id="panel_animation" class="h-[30vh] w-[30vh] grid relative m-auto">
+                            <img id="panel_animation_1" class="absolute m-auto w-full h-full z-10" src="https://th.bing.com/th/id/OIP.PQ3Dx25bc4o7lDT8FZzZ5wAAAA?pid=ImgDet&rs=1">
+                            <img id="panel_animation_2" class="absolute m-auto w-full h-full" src="https://www.mandlpaints.com/wp-content/uploads/2018/09/Greyfriars-300x300.jpg">    
+                            <script>
+                                let panel_1 = document.querySelector('#panel_animation_1')
+                                setInterval(() => {
+                                    panel_1.classList.toggle('opacity-0')
+                                }, 750)
+                            </script>
+                        </div>
+                    </div>
+                    <div class="grid m-auto w-3/4 gap-8">
+                        <div class="grid grid-cols-2 gap-x-8 gap-y-4 w-full">
+                            <p class="font-patrick text-xl">Sketchas: <span id="view_count_chars"></span></p>
+                            <p class="font-patrick text-xl">Items: <span id="view_count_items"></span></p>
+                            <p class="font-patrick text-xl">Coins: <span id="view_count_coins"></span></p>
+                        </div>
+                        <div class="w-full h-full drop-shadow-lg">
+                            <div class="grid grid-cols-2 gap-1">
+                                <button    
+                                    onclick="alert('implement')" 
+                                    class="col-span-2 w-full m-auto py-2 text-2xl text-black font-patrick bg-white border-2 border-black transition duration-100 hover:bg-black hover:text-white">
+                                    Fight
+                                </button>
+                                <button    
+                                    onclick="alert('implement')" 
+                                    class="m-auto py-2 w-full text-xl text-black font-patrick bg-white border-2 border-black transition duration-100 hover:bg-black hover:text-white">
+                                    Sketchas
+                                </button>
+                                <button    
+                                    onclick="alert('implement')" 
+                                    class="m-auto py-2 w-full text-xl text-black font-patrick bg-white border-2 border-black transition duration-100 hover:bg-black hover:text-white">
+                                    Items
+                                </button>
+                                <button    
+                                    onclick="alert('implement')" 
+                                    class="m-auto py-2 w-full text-xl text-black font-patrick bg-white border-2 border-black transition duration-100 hover:bg-black hover:text-white">
+                                    Roll Sketchas
+                                </button>
+                                <button    
+                                    onclick="alert('implement')" 
+                                    class="m-auto py-2 w-full text-xl text-black font-patrick bg-white border-2 border-black transition duration-100 hover:bg-black hover:text-white">
+                                    Roll Items
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div id="screen_home_options" class="opacity-0 inactive_screen">
 
