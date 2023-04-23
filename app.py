@@ -55,16 +55,17 @@ def route_new_player():
 
 @app.route('/get-player-data', methods=['GET'])
 def route_get_player_data():
-    player_id = request.args.get('id')
-    res = {
-        'status': 'success',
-        'message': 'player data retrieved successfully',
-        'data': {
-            'characters': [],
-            'items': []
+    try:
+        player_id = request.args.get('id')
+        player_data = get_player_data(player_id)
+        res = {
+            'status': 'success',
+            'message': 'player data retrieved successfully',
+            'data': player_data
         }
-    }
-    return make_response(jsonify(res), 200)
+        return make_response(jsonify(res), 200)
+    except Exception as e:
+        abort(500)
 
 # socket routes
 @socketio.on('connect')

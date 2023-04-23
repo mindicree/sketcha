@@ -30,6 +30,38 @@ except Exception as e:
     print(e)
     exit()
 
+def get_player_data(player_id):
+    cursor = db.cursor()
+    char_data = get_player_chars(cursor, player_id)
+    item_data = get_player_items(cursor, player_id)
+    coin_data = cursor.execute(f'SELECT coins FROM players WHERE rowid = {player_id} LIMIT 1').fetchone()
+    cursor.close()
+    return {
+        'char_data': char_data,
+        'item_data': item_data,
+        'coin_data': coin_data
+    }
+
+def get_player_chars(cursor, player_id):
+    script = f'''
+    SELECT player_characters.rowid, * FROM player_characters
+    INNER JOIN characters ON (player_characters.character_id = characters.rowid)
+    WHERE player_characters.player_id = {player_id}
+    ORDER BY level DESC
+    '''
+    res = cursor.execute(script).fetchall()
+    return res
+
+def get_player_items(cursor, player_id):
+    script = f'''
+    SELECT player_items.rowid, * FROM player_items
+    INNER JOIN items ON (player_items.item_id = items.rowid)
+    WHERE player_items.player_id = {player_id}
+    ORDER BY name DESC
+    '''
+    res = cursor.execute(script).fetchall()
+    return res
+    
 def get_random_enemy():
     cursor = db.cursor()
     enemy = cursor.execute('SELECT rowid, * FROM enemies ORDER BY RANDOM() LIMIT 1').fetchone()
