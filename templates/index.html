@@ -19,6 +19,9 @@
                 <div class="lds-ripple m-auto"><div></div><div></div></div>
             </div>
         </div>
+        <div id="loading_icon" class="hidden absolute w-full h-full z-[100] grid bg-gray-500 bg-opacity-25">
+            <div class="lds-ripple m-auto"><div></div><div></div></div>
+        </div>
         <div id="game_screen_container" class="w-full h-screen m-auto grid opacity-0">
             <!-- HOME SCREENS -->
             <div id="screen_home_new" class="opacity-0 inactive_screen">
@@ -52,9 +55,9 @@
             <div id="screen_new_player" class="opacity-0 inactive_screen">
                 <div class="grid m-auto gap-4">
                     <h3 class="font-patrick text-2xl m-auto">Please enter your name</h3>
-                    <input class="w-full m-auto border-2 border-black py-4 px-2">
-                    <button    
-                        onclick="alert('implement')" 
+                    <input id="input_new_player" class="w-full m-auto border-2 border-black py-4 px-2">
+                    <button
+                        onclick="create_new_player()" 
                         class="m-auto min-w-[300px] py-2 text-3xl text-black font-patrick bg-white border-2 border-black transition duration-100 hover:bg-black hover:text-white">
                         Submit
                     </button>
@@ -133,6 +136,7 @@
 </body>
 <script src="{{ url_for('static', filename='js/screens.js') }}"></script>
 <script src="{{ url_for('static', filename='js/update_ui.js') }}"></script>
+<script src="{{ url_for('static', filename='js/player.js') }}"></script>
 <script>
     // initialize the game
     // initial views

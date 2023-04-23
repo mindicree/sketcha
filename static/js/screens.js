@@ -41,3 +41,8 @@ function transition_screen(old_screen, new_screen) {
     old_screen.classList.remove('active_screen')
     old_screen.classList.remove('z-50')
 }
+
+// toggle loading icons
+function toggle_loading() {
+    document.querySelector('#loading_icon').classList.toggle('hidden')
+}
