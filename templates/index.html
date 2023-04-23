@@ -70,7 +70,7 @@
                 <div class="grid w-3/4 max-w-xl m-auto gap-8">
                     <p id="welcome-text" class="text-center m-auto text-xl w-full"></p>
                     <button
-                        onclick="alert('implement');return;load_panel()" 
+                        onclick="load_panel()" 
                         class="m-auto min-w-[300px] py-2 text-3xl text-black font-patrick bg-white border-2 border-black transition duration-100 hover:bg-black hover:text-white">
                         Begin
                     </button>
@@ -103,7 +103,7 @@
                     </div>
                 </div>
             </div>
-            <div id="screen_home_portal" class="opacity-0 inactive_screen">
+            <div id="screen_home_panel" class="opacity-0 inactive_screen">
 
             </div>
             <div id="screen_home_options" class="opacity-0 inactive_screen">
@@ -173,8 +173,8 @@
 </body>
 <script src="{{ url_for('static', filename='js/utilities.js') }}"></script>
 <script src="{{ url_for('static', filename='js/screens.js') }}"></script>
+<script src="{{ url_for('static', filename='js/player.js') }}"></script>
 <script src="{{ url_for('static', filename='js/panel.js') }}"></script>
 <script src="{{ url_for('static', filename='js/update_ui.js') }}"></script>
-<script src="{{ url_for('static', filename='js/player.js') }}"></script>
 <script src="{{ url_for('static', filename='js/start.js') }}"></script>
 </html>
