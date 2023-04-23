@@ -13,6 +13,7 @@
 </head>
 <body>
     <div id="content-container" class="w-full h-screen">
+        <!-- ABSOLUTE VIEWS -->
         <div id="screen_loading" class="active_screen opacity-0">
             <div class="grid h-[50vh] m-auto">
                 <h2 class="text-5xl m-auto font-patrick">LOADING</h2>
@@ -22,6 +23,8 @@
         <div id="loading_icon" class="hidden absolute w-full h-full z-[100] grid bg-gray-500 bg-opacity-25">
             <div class="lds-ripple m-auto"><div></div><div></div></div>
         </div>
+        <span id="view_player_id" class="font-patrick absolute bottom-2 left-2"></span>
+        <!-- GAME SCREENS -->
         <div id="game_screen_container" class="w-full h-screen m-auto grid opacity-0">
             <!-- HOME SCREENS -->
             <div id="screen_home_new" class="opacity-0 inactive_screen">
@@ -74,7 +77,31 @@
                 </div>
             </div>
             <div id="screen_home_continue" class="opacity-0 inactive_screen">
-
+                <div class="grid h-[75vh] m-auto">
+                    <h2 class="text-7xl m-auto font-patrick">SKETCHA</h2>
+                    <div class="grid m-auto gap-4">
+                        <button    
+                            onclick="reset_player()" 
+                            class="m-auto min-w-[300px] py-2 text-3xl text-black font-patrick bg-white border-2 border-black transition duration-100 hover:bg-black hover:text-white">
+                            New
+                        </button>
+                        <button   
+                            onclick="load_panel()" 
+                            class="m-auto min-w-[300px] py-2 text-3xl text-black font-patrick bg-white border-2 border-black transition duration-100 disabled:opacity-50 disabled:hover:">
+                            Continue
+                        </button>
+                        <button    
+                            onclick="transition_screen(screen_home_new, screen_home_credits)" 
+                            class="m-auto min-w-[300px] py-2 text-3xl text-black font-patrick bg-white border-2 border-black transition duration-100 hover:bg-black hover:text-white">
+                            How To Play
+                        </button>
+                        <button    
+                            onclick="transition_screen(screen_home_new, screen_home_tutorial)" 
+                            class="m-auto min-w-[300px] py-2 text-3xl text-black font-patrick bg-white border-2 border-black transition duration-100 hover:bg-black hover:text-white">
+                            Credits
+                        </button>
+                    </div>
+                </div>
             </div>
             <div id="screen_home_portal" class="opacity-0 inactive_screen">
 
@@ -146,6 +173,7 @@
 </body>
 <script src="{{ url_for('static', filename='js/utilities.js') }}"></script>
 <script src="{{ url_for('static', filename='js/screens.js') }}"></script>
+<script src="{{ url_for('static', filename='js/panel.js') }}"></script>
 <script src="{{ url_for('static', filename='js/update_ui.js') }}"></script>
 <script src="{{ url_for('static', filename='js/player.js') }}"></script>
 <script src="{{ url_for('static', filename='js/start.js') }}"></script>

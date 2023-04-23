@@ -524,6 +524,14 @@ video {
   position: absolute;
 }
 
+.bottom-2 {
+  bottom: 0.5rem;
+}
+
+.left-2 {
+  left: 0.5rem;
+}
+
 .z-\[100\] {
   z-index: 100;
 }

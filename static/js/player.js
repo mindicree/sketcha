@@ -25,7 +25,7 @@ function create_new_player() {
 
 function set_welcome_text(info) {
     let welcome_text = document.querySelector('#welcome-text')
-    welcome_text.innerHTML = `Welcome to Sketcha, <strong>${info['name']}</strong>! We hope that you will enjoy the infinite loop of addiction that we will inevitably inflict onto your life. For reference, your full id is <strong>${info['name']}#${info['id']}</strong>. Use this for data recovery in case of failure. <br><br>Have fun!`
+    welcome_text.innerHTML = `Welcome to Sketcha, <strong>${info['name']}</strong>! We hope that you will enjoy the infinite loop of addiction that we will inevitably inflict onto your life. For reference, your full id is <strong>${player_string(info)}</strong>. Use this for data recovery in case of failure. <br><br>Have fun!`
 }
 
 function save_player_to_local(player_json) {
@@ -41,4 +41,15 @@ function get_player_from_local() {
 
 function remove_player_from_local() {
     localStorage.removeItem('player')
+}
+
+function reset_player() {
+    if (confirm('You already have a game on this device. Are you sure you want to start a new one?')) {
+        remove_player_from_local()
+        window.location.reload();
+    }
+}
+
+function set_bl_player_text() {
+    document.querySelector('#view_player_id').innerHTML = player_string(get_player_from_local())
 }
