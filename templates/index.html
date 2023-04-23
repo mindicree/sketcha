@@ -127,7 +127,7 @@
                         <div class="w-full h-full drop-shadow-lg">
                             <div class="grid grid-cols-2 gap-1">
                                 <button    
-                                    onclick="prepare_for_fight()" 
+                                    onclick="prepare_for_battle()" 
                                     class="col-span-2 w-full m-auto py-2 text-2xl text-black font-patrick bg-white border-2 border-black transition duration-100 hover:bg-black hover:text-white">
                                     Fight
                                 </button>
@@ -206,17 +206,59 @@
 
             </div>
             <!-- BATTLE SCREENS -->
-            <div id="screen_battle_team" class="opacity-0 inactive_screen">
-
-            </div>
             <div id="screen_battle_select" class="opacity-0 inactive_screen">
-
+                <h2 class="text-4xl mx-auto font-patrick pt-16">Choose Your Sketcha</h2>
+                <div id="battle_select_char" class="grid xl:grid-cols-2 w-3/4 max-w-[1024px] py-4 overflow-y-auto mx-auto h-[50vh]">
+                    <div class="grid grid-cols-6 w-full gap-4 m-auto drop-shadow-lg hover:bg-gray-500 transition duration-100 drop-shadow-lg">
+                        <img src="https://th.bing.com/th/id/OIP.PQ3Dx25bc4o7lDT8FZzZ5wAAAA?pid=ImgDet&rs=1" class="col-span-2 w-3/4 max-w-[100px] aspect-square m-auto">
+                        <div class="grid gap-1 col-span-4">
+                            <h4 class="text-lg font-bold font-patrick">Test Name</h4>
+                            <p class="font-patrick">Level: 2 | Love: 10</p>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div id="screen_battle_fight" class="opacity-0 inactive_screen">
-
+                <div class="grid grid-cols-2 w-full max-w-[1024px] gap-2">
+                    <div class="grid m-auto z-50">
+                        <div class="relative grid w-full h-[25vh]">
+                            <img id="player_fighter_sprite_1" class="absolute top-0 left-0 m-auto w-full z-10" src="#">
+                            <img id="player_fighter_sprite_2" class="absolute top-0 left-0 m-auto w-full" src="#">    
+                        </div>
+                        <div class="grid m-auto">
+                            <p id="player_fight_hp" class="m-auto font-patrick text-2xl"></p>
+                        </div>
+                    </div>
+                    <div class="grid m-auto z-50">
+                        <div class="relative grid w-full h-[25vh]">
+                            <img width="300px" id="enemy_fighter_sprite_1" class="absolute top-0 left-0 m-auto w-full z-10" src="#">
+                            <img width="300px" id="enemy_fighter_sprite_2" class="absolute top-0 left-0 m-auto w-full" src="#">    
+                        </div>
+                        <div class="grid m-auto">
+                            <p id="enemy_fight_hp" class="m-auto font-patrick text-2xl"></p>
+                        </div>
+                    </div>
+                    <h4 id="view_chance_of_success" class="col-span-2 font-patrick text-3xl m-auto w-full text-center">Chance To Win</h4>
+                    <h4 id="view_chance_of_success" class="col-span-2 font-patrick text-3xl m-auto w-full text-center"></h4>
+                    <button    
+                        onclick="fight()" 
+                        class="col-span-2 w-3/4 max-w-xl m-auto py-2 text-2xl text-black font-patrick bg-white border-2 border-black transition duration-100 hover:bg-black hover:text-white">
+                        Fight
+                    </button>
+                </div>
             </div>
             <div id="screen_battle_finish" class="opacity-0 inactive_screen">
-
+                <div class="grid w-3/4 m-auto">
+                    <div class="grid w-full max-w-2xl m-auto h-[50vh] m-auto">
+                        <h3 id="battle_result" class="m-auto text-4xl font-patrick w-full text-center"></h3>
+                        <p id="coin_result" class="text-center m-auto text-2xl w-full"></p>
+                    </div>
+                    <button    
+                        onclick="load_panel()" 
+                        class="col-span-2 w-3/4 max-w-xl m-auto py-2 text-2xl text-black font-patrick bg-white border-2 border-black transition duration-100 hover:bg-black hover:text-white">
+                        Return
+                    </button>
+                </div>
             </div>
         </div>
     </div>
@@ -227,4 +269,6 @@
 <script src="{{ url_for('static', filename='js/panel.js') }}"></script>
 <script src="{{ url_for('static', filename='js/update_ui.js') }}"></script>
 <script src="{{ url_for('static', filename='js/start.js') }}"></script>
+<script src="{{ url_for('static', filename='js/battle.js') }}"></script>
+<script src="{{ url_for('static', filename='js/gacha.js') }}"></script>
 </html>

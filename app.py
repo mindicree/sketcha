@@ -68,6 +68,20 @@ def route_get_player_data():
         logging.error(e)
         abort(500)
 
+@app.route('/get-random-enemy')
+def route_get_random_enemy():
+    return jsonify(get_random_enemy())
+
+@app.route('/char_win', methods=['POST'])
+def route_win():
+    submitWin(request.args.get('char_id'), request.args.get('player_id'))
+    return jsonify({'status': 'success'})
+
+@app.route('/char_lose', methods=['POST'])
+def route_lose():
+    submitLoss(request.args.get('player_id'))
+    return jsonify({'status': 'success'})
+
 # socket routes
 @socketio.on('connect')
 def connect():

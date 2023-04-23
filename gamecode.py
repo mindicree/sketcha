@@ -30,6 +30,20 @@ except Exception as e:
     print(e)
     exit()
 
+def submitWin(char_id, player_id):
+    cursor = db.cursor()
+    cursor.execute(f'UPDATE players SET coins = coins + 5, streak = streak + 1 WHERE rowid = {player_id}')
+    cursor.execute(f'UPDATE player_characters SET love = love + 1 WHERE rowid = {char_id}')
+    db.commit()
+    cursor.close()
+
+def submitLoss(player_id):
+    cursor = db.cursor()
+    script = f'UPDATE players SET coins = coins + 1, streak = 0 WHERE rowid = {player_id}'
+    cursor.execute(script)
+    db.commit()
+    cursor.close()
+
 def get_player_data(player_id):
     cursor = db.cursor()
     char_data = get_player_chars(cursor, player_id)
