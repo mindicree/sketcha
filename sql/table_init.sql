@@ -1,5 +1,6 @@
 CREATE TABLE IF NOT EXISTS players (
     coins INT DEFAULT 5,
+    streak INT DEFAULT 0,
     username TEXT DEFAULT NULL,
     password TEXT DEFAULT NULL
 );

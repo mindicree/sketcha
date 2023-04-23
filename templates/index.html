@@ -113,7 +113,7 @@
                                 let panel_1 = document.querySelector('#panel_animation_1')
                                 setInterval(() => {
                                     panel_1.classList.toggle('opacity-0')
-                                }, 750)
+                                }, 500)
                             </script>
                         </div>
                     </div>
@@ -122,11 +122,12 @@
                             <p class="font-patrick text-xl">Sketchas: <span id="view_count_chars"></span></p>
                             <p class="font-patrick text-xl">Items: <span id="view_count_items"></span></p>
                             <p class="font-patrick text-xl">Coins: <span id="view_count_coins"></span></p>
+                            <p class="font-patrick text-xl">Streak: <span id="view_count_streak"></span></p>
                         </div>
                         <div class="w-full h-full drop-shadow-lg">
                             <div class="grid grid-cols-2 gap-1">
                                 <button    
-                                    onclick="alert('implement')" 
+                                    onclick="prepare_for_fight()" 
                                     class="col-span-2 w-full m-auto py-2 text-2xl text-black font-patrick bg-white border-2 border-black transition duration-100 hover:bg-black hover:text-white">
                                     Fight
                                 </button>
