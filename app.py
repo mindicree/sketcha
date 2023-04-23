@@ -1,5 +1,5 @@
 # imports
-from flask import Flask, render_template
+from flask import Flask, render_template, request, make_response, jsonify, abort
 from flask_socketio import SocketIO
 import yaml
 from gamecode import *
@@ -22,10 +22,36 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = config['SECRET_KEY']
 socketio =  SocketIO(app, async_mode=None)
 
+@app.errorhandler(500)
+def server_error(error):
+    json_res = {
+        'status': 'error',
+        'message': 'there is a server error'
+    }
+    return make_response(jsonify(json_res), 500)
+
 # main application route
 @app.route('/')
 def index():
     return render_template('index.html')
+
+@app.route('/create-player', methods=['POST'])
+def route_new_player():
+    try:
+        new_name = request.args.get('name')
+        player_id = create_new_player(new_name, new_name)
+        res = {
+            'status': 'success',
+            'message': 'created new player successfully',
+            'data': {
+                'name': new_name,
+                'id': player_id
+            }
+        }
+        return make_response(jsonify(res), 201)
+    except Exception as e:
+        logging.error(e)
+        abort(500)
 
 # socket routes
 @socketio.on('connect')

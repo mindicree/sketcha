@@ -7,7 +7,7 @@ import os
 from datetime import datetime
 
 # setup database configuration
-db = sqlite3.connect('database.db')
+db = sqlite3.connect('database.db', check_same_thread=False)
 def dict_factory(cursor, row):
     fields = [column[0] for column in cursor.description]
     return {key: value for key, value in zip(fields, row)}
@@ -107,7 +107,7 @@ def get_random_item(cursor, rank):
 def create_new_player(username=None, password=None):
     cursor = db.cursor()
     if username and password:
-        cursor.execute(f'INSERT INTO players (username, password) VALUES ({username}, {get_password_hash(password)})')
+        cursor.execute(f'INSERT INTO players (username, password) VALUES ("{username}", "{get_password_hash(password)}")')
     else:
         cursor.execute('INSERT INTO players DEFAULT VALUES')
     new_player_id = cursor.lastrowid
