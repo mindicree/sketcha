@@ -34,12 +34,12 @@ def get_player_data(player_id):
     cursor = db.cursor()
     char_data = get_player_chars(cursor, player_id)
     item_data = get_player_items(cursor, player_id)
-    coin_data = cursor.execute(f'SELECT coins FROM players WHERE rowid = {player_id} LIMIT 1').fetchone()
+    player_data = cursor.execute(f'SELECT coins, streak FROM players WHERE rowid = {player_id} LIMIT 1').fetchone()
     cursor.close()
     return {
         'char_data': char_data,
         'item_data': item_data,
-        'coin_data': coin_data
+        'player_data': player_data
     }
 
 def get_player_chars(cursor, player_id):
@@ -143,6 +143,8 @@ def create_new_player(username=None, password=None):
     else:
         cursor.execute('INSERT INTO players DEFAULT VALUES')
     new_player_id = cursor.lastrowid
+    roll_character(new_player_id)
+    roll_item(new_player_id)
     db.commit()
     cursor.close()
     return new_player_id
