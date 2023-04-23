@@ -10,7 +10,8 @@ function create_new_player() {
     .then((data) => {
         if (data['status'] === 'success') {
             save_player_to_local(data['data'])
-            transition_screen(screen_new_player, screen_home_portal)
+            set_welcome_text(data['data'])
+            transition_screen(screen_new_player, screen_new_welcome)
             toggle_loading()
             console.log(data)
         } else {
@@ -20,6 +21,11 @@ function create_new_player() {
     .catch((err) => {
         console.log(err)
     })
+}
+
+function set_welcome_text(info) {
+    let welcome_text = document.querySelector('#welcome-text')
+    welcome_text.innerHTML = `Welcome to Sketcha, <strong>${info['name']}</strong>! We hope that you will enjoy the infinite loop of addiction that we will inevitably inflict onto your life. For reference, your full id is <strong>${info['name']}#${info['id']}</strong>. Use this for data recovery in case of failure. <br><br>Have fun!`
 }
 
 function save_player_to_local(player_json) {
