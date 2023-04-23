@@ -72,14 +72,14 @@ function update_battle_field_ui() {
     document.querySelector('#enemy_fighter_sprite_2').src = battle_data.enemy.sprite_idle_2
     document.querySelector('#player_fight_hp').innerHTML = battle_data.char.name
     document.querySelector('#enemy_fight_hp').innerHTML = battle_data.enemy.name
-    document.querySelector('#view_chance_of_success').innerHTML = `${(battle_data.success) * 100}%`
+    document.querySelector('#view_chance_of_success').innerHTML = `${Math.floor((battle_data.success) * 100)}%`
 }
 
 function get_chance_of_success() {
     let player_total = battle_data.char.hp * (Math.random() * 2)
     let enemy_total = (battle_data.enemy.hp) * (Math.random() * 10)
     let chance = player_total/enemy_total
-    return Math.min(90, chance)
+    return Math.min(.9, chance)
 }
 
 function fight() {
