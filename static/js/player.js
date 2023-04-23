@@ -27,7 +27,10 @@ function save_player_to_local(player_json) {
 }
 
 function get_player_from_local() {
-    return localStorage.getItem('player')
+    if (localStorage.getItem('player')) {
+        return JSON.parse(localStorage.getItem('player'))
+    }
+    return null
 }
 
 function remove_player_from_local() {
