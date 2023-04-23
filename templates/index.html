@@ -24,11 +24,41 @@
             <div id="screen_home_new" class="opacity-0 inactive_screen">
                 <div class="grid h-[75vh] m-auto">
                     <h2 class="text-7xl m-auto font-patrick">SKETCHA</h2>
-                    <button onclick="alert('implement')" class="m-auto min-w-[300px] py-2 text-3xl text-black font-patrick bg-white border-2 border-black transition duration-100 hover:bg-black hover:text-white">New</button>
+                    <div class="grid m-auto gap-4">
+                        <button    
+                            onclick="transition_screen(screen_home_new, screen_new_player)" 
+                            class="m-auto min-w-[300px] py-2 text-3xl text-black font-patrick bg-white border-2 border-black transition duration-100 hover:bg-black hover:text-white">
+                            New
+                        </button>
+                        <button
+                            disabled    
+                            onclick="transition_screen(screen_home_new, screen_new_player)" 
+                            class="m-auto min-w-[300px] py-2 text-3xl text-black font-patrick bg-white border-2 border-black transition duration-100 disabled:opacity-50 disabled:hover:">
+                            Continue
+                        </button>
+                        <button    
+                            onclick="transition_screen(screen_home_new, screen_home_credits)" 
+                            class="m-auto min-w-[300px] py-2 text-3xl text-black font-patrick bg-white border-2 border-black transition duration-100 hover:bg-black hover:text-white">
+                            How To Play
+                        </button>
+                        <button    
+                            onclick="transition_screen(screen_home_new, screen_home_tutorial)" 
+                            class="m-auto min-w-[300px] py-2 text-3xl text-black font-patrick bg-white border-2 border-black transition duration-100 hover:bg-black hover:text-white">
+                            Credits
+                        </button>
+                    </div>
                 </div>
             </div>
             <div id="screen_new_player" class="opacity-0 inactive_screen">
-
+                <div class="grid m-auto gap-4">
+                    <h3 class="font-patrick text-2xl m-auto">Please enter your name</h3>
+                    <input class="w-full m-auto border-2 border-black py-4 px-2">
+                    <button    
+                        onclick="alert('implement')" 
+                        class="m-auto min-w-[300px] py-2 text-3xl text-black font-patrick bg-white border-2 border-black transition duration-100 hover:bg-black hover:text-white">
+                        Submit
+                    </button>
+                </div>
             </div>
             <div id="screen_home_continue" class="opacity-0 inactive_screen">
 
@@ -37,6 +67,12 @@
 
             </div>
             <div id="screen_home_options" class="opacity-0 inactive_screen">
+
+            </div>
+            <div id="screen_home_credits" class="opacity-0 inactive_screen">
+
+            </div>
+            <div id="screen_home_tutorial" class="opacity-0 inactive_screen">
 
             </div>
             <!-- GACHA CHAR SCREENS -->

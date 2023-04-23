@@ -104,7 +104,7 @@
     height: 100vh;
     display: grid;
     animation: fade_in_screen;
-    animation-duration: 1s;
+    animation-duration: 0.5s;
     animation-fill-mode: forwards;
     position: absolute;
     z-index: 50;
@@ -115,7 +115,7 @@
     height: 100vh;
     display: grid;
     animation: fade_out_screen;
-    animation-duration: 1s;
+    animation-duration: 0.5s;
     animation-fill-mode: forwards;
     position: absolute;
     z-index: 0;

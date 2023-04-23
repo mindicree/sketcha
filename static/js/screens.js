@@ -8,6 +8,8 @@ let screen_new_player = document.querySelector('#screen_new_player')
 let screen_home_continue = document.querySelector('#screen_home_continue')
 let screen_home_portal = document.querySelector('#screen_home_portal')
 let screen_home_options = document.querySelector('#screen_home_options')
+let screen_home_credits = document.querySelector('#screen_home_credits')
+let screen_home_tutorial = document.querySelector('#screen_home_tutorial')
 // gacha char screens
 let screen_gacha_char_buy = document.querySelector('#screen_gacha_char_buy')
 let screen_gacha_char_open = document.querySelector('#screen_gacha_char_open')
